@@ -1,6 +1,6 @@
 /***************************************************************************************
 * AUTHOR : zzc
-* DATE   : 2019-4-22
+* DATE   : 2019-6-10
 * MODULE : struct.h
 * 
 * Command: 
@@ -405,10 +405,3 @@ RtlFormatCurrentUserKeyPath(
 
 VOID KeAttachProcess( PEPROCESS proc );
 VOID KeDetachProcess();
-
-
-
-
-
-
-

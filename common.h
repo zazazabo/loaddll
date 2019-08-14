@@ -1,6 +1,6 @@
 /**************************************************************************************
 * AUTHOR : zzc
-* DATE   : 2019-4-22
+* DATE   : 2019-6-10
 * MODULE : common.h
 *
 * Command: 
@@ -52,10 +52,13 @@
 #define IOCTRL_REC_FROM_APP          MY_CTL_CODE(1)
 #define IOCTRL_SEND_TO_APP           MY_CTL_CODE(2)
 
-
+#define IOCTRL_LOAD_EXE              MY_CTL_CODE(4)
 //
 // TODO: Add your IOCTL define here
 //
+
+
+
 
 
 

@@ -19,9 +19,6 @@
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Win32|Win32'">
     <PlatformToolset>v110</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='x64|Win32'">
-    <PlatformToolset>v110</PlatformToolset>
-  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
@@ -61,7 +58,7 @@
       </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>ntoskrnl.lib;hal.lib;wdm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ntoskrnl.lib;hal.lib;wdm.lib;bufferoverflowK.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Link>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
@@ -119,10 +116,14 @@
     <ClCompile Include=".\loaddll.cpp" />
     <ClCompile Include=".\loaddll.h" />
     <ClCompile Include=".\common.h" />
+    <ClCompile Include="disasm.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="disasm.h" />
+    <ClInclude Include="disasmTable.h" />
     <ClInclude Include="dll32.h" />
     <ClInclude Include="dll64.h" />
+    <ClInclude Include="lde.h" />
     <ClInclude Include="memload.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

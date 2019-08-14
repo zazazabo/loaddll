@@ -2,6 +2,9 @@ TARGETNAME=loaddll
 #TARGETPATH=$(BASEDIR)\lib
 TARGETPATH=obj
 TARGETTYPE=DRIVER
+
 INCLUDES=.\
 
-SOURCES=loaddll.cpp
+SOURCES=loaddll.cpp\
+disasm.c
+
