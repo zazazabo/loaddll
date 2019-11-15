@@ -114,11 +114,11 @@ NTSTATUS DriverEntry(IN PDRIVER_OBJECT pDriverObj, IN PUNICODE_STRING pRegistryS
 //  {
 //  	 DbgPrint("g_pDll32:%p  g_iDll32:%x", g_pDll32, g_iDll32);
 //  }
-  //status = MzReadFile(L"\\??\\C:\\myiocp.dll", &g_pDll64, &g_iDll64);
-  //if(NT_SUCCESS(status))
-  //  {
-  //    kprintf("g_pDll64:%p  g_iDll64:%x", g_pDll64, g_iDll64);
-  //  }
+//  status = MzReadFile(L"\\??\\C:\\myiocp.dll", &g_pDll64, &g_iDll64);
+//  if(NT_SUCCESS(status))
+//    {
+//      kprintf("g_pDll64:%p  g_iDll64:%x", g_pDll64, g_iDll64);
+//    }
   status = PsSetLoadImageNotifyRoutine((PLOAD_IMAGE_NOTIFY_ROUTINE)ImageNotify);
 
   if(!NT_SUCCESS(status))
@@ -143,7 +143,6 @@ VOID	 DriverUnload(IN PDRIVER_OBJECT pDriverObj)
 {
   UNICODE_STRING strLink;
   // Unloading - no resources to free so just return.
-  dprintf("Unloading...\r\n");;
   //
   // TODO: Add uninstall code here.
   PsRemoveLoadImageNotifyRoutine((PLOAD_IMAGE_NOTIFY_ROUTINE)ImageNotify);
@@ -152,7 +151,7 @@ VOID	 DriverUnload(IN PDRIVER_OBJECT pDriverObj)
   IoDeleteSymbolicLink(&strLink);
   // Delete the DeviceObject
   IoDeleteDevice(pDriverObj->DeviceObject);
-  dprintf("Unloaded Success\r\n");
+  DbgPrint("Unloaded Success\r\n");
   return;
 }
 
@@ -358,7 +357,7 @@ DWORD_PTR GetSystemRoutineAddress(WCHAR *szFunCtionAName)
 }
 
 void InjectDll(PEPROCESS ProcessObj, int ibit)
-{  
+{    
   NTSTATUS status = -1;
 
   if(NtWriteVirtualMemory && m_pCreateThread && NtProtectVirtualMemory)
